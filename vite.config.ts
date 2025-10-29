@@ -4,6 +4,8 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(() => ({
+  base: "/Thai-Nippon-Sushi-Bar/",
+  base: "/Thai-Nippon-Sushi-Bar/",
   server: {
     host: "::",
     port: 8080,
