@@ -91,10 +91,10 @@ const Hero = () => {
       {/* Scroll Indicator */}
       <button
         onClick={() => scrollToSection("features")}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 text-white animate-bounce cursor-pointer"
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 text-white cursor-pointer"
         aria-label="Scroll down"
       >
-        <ChevronDown className="w-8 h-8" />
+        <ChevronDown className="w-8 h-8 animate-bounce" />
       </button>
     </section>
   );
