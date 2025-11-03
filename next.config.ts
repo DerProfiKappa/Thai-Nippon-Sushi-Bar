@@ -5,6 +5,7 @@ const LOADER = path.resolve(__dirname, 'src/visual-edits/component-tagger-loader
 const isGithubPages = process.env.GITHUB_PAGES === 'true';
 const repoName = 'Thai-Nippon-Sushi-Bar';
 const basePath = isGithubPages ? `/${repoName}` : '';
+const siteUrl = isGithubPages ? `https://derprofikappa.github.io/${repoName}` : '';
 
 const nextConfig: NextConfig = {
   output: 'export',
@@ -29,6 +30,7 @@ const nextConfig: NextConfig = {
     : {}),
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
+    NEXT_PUBLIC_SITE_URL: siteUrl,
   },
   trailingSlash: true,
   outputFileTracingRoot: path.resolve(__dirname, '../../'),

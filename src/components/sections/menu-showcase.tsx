@@ -8,7 +8,12 @@ import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 const MenuShowcase = () => {
   const { elementRef, isVisible } = useScrollReveal({ threshold: 0.1 });
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
-  const menuPdfPath = `${basePath}/menu.pdf`;
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? '';
+  const normalizedBasePath = basePath.endsWith('/') ? basePath.slice(0, -1) : basePath;
+  const normalizedSiteUrl = siteUrl.endsWith('/') ? siteUrl.slice(0, -1) : siteUrl;
+  const menuPdfPath = normalizedSiteUrl
+    ? `${normalizedSiteUrl}/menu.pdf`
+    : `${normalizedBasePath ? `${normalizedBasePath}/` : ''}menu.pdf`;
 
   return (
     <section
