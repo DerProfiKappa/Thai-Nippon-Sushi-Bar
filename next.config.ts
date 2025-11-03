@@ -4,6 +4,7 @@ import path from "node:path";
 const LOADER = path.resolve(__dirname, 'src/visual-edits/component-tagger-loader.js');
 const isGithubPages = process.env.GITHUB_PAGES === 'true';
 const repoName = 'Thai-Nippon-Sushi-Bar';
+const basePath = isGithubPages ? `/${repoName}` : '';
 
 const nextConfig: NextConfig = {
   output: 'export',
@@ -22,10 +23,13 @@ const nextConfig: NextConfig = {
   },
   ...(isGithubPages
     ? {
-        basePath: `/${repoName}`,
-        assetPrefix: `/${repoName}/`,
+        basePath,
+        assetPrefix: `${basePath}/`,
       }
     : {}),
+  env: {
+    NEXT_PUBLIC_BASE_PATH: basePath,
+  },
   trailingSlash: true,
   outputFileTracingRoot: path.resolve(__dirname, '../../'),
   typescript: {

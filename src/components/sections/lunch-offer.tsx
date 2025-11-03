@@ -6,6 +6,8 @@ import { useScrollReveal } from '@/hooks/use-scroll-reveal';
 
 const LunchOffer = () => {
   const { elementRef, isVisible } = useScrollReveal({ threshold: 0.05 });
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
+  const menuPdfPath = `${basePath}/menu.pdf`;
 
   return (
     <section 
@@ -139,7 +141,7 @@ const LunchOffer = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
-              href="/menu.pdf"
+              href={menuPdfPath}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-body font-bold text-base uppercase tracking-wider py-4 px-10 rounded-xl transition-all duration-300 hover:bg-gold-highlight hover:shadow-xl hover:shadow-primary/30 hover:scale-105"
